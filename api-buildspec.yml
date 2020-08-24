@@ -1,0 +1,13 @@
+version: 0.2
+phases:
+  install:
+    commands:
+      - cd 01api
+      - aws cloudformation package --template-file petstore-api.yaml
+                                   --s3-bucket experiments-pipeline-postman
+                                   --s3-prefix api-code
+                                   --output-template-file api-output.yaml
+artifacts:
+  type: zip
+  files:
+    - api-output.yaml

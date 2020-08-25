@@ -2,12 +2,12 @@ version: 0.2
 phases:
   install:
     commands:
-      - aws cloudformation package --template-file template.yml
+      - aws cloudformation package --template-file template.yaml
                                    --s3-bucket experiments-pipeline-postman
                                    --s3-prefix api-code
                                    --output-template-file api-output.yml
 artifacts:
   type: zip
   files:
-    - template.yml
+    - template.yaml
     - api-output.yml
